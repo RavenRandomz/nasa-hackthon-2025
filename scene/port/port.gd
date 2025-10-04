@@ -1,6 +1,5 @@
 extends Area2D
-
-class_name Door
+class_name Port
 
 signal door_connected()
 signal door_disconnected()
@@ -22,11 +21,11 @@ func _disconnected_check():
 		print("Disconnected")
 
 func _on_area_entered(area: Area2D) -> void:
-	if (typeof(area) == typeof(Door)):
+	if (typeof(area) == typeof(Port)):
 		_connected_door_count += 1
 		_connected_check()
 
 func _on_area_exited(area: Area2D) -> void:
-	if (typeof(area) == typeof(Door)):
+	if (typeof(area) == typeof(Port)):
 		_connected_door_count -= 1
 		_disconnected_check()
