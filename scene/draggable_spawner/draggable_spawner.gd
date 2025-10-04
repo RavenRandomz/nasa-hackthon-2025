@@ -5,6 +5,11 @@ extends Button
 @export var _spawn_into : Node
 
 func _on_pressed() -> void:
+	pass
+
+func _on_button_down() -> void:
 	var spawned = _scene_to_spawn.instantiate() 
 	_spawn_into.add_child(spawned)
+	spawned._on_button_down()
 	pass # Replace with function body.
+ # Replace with function body.
