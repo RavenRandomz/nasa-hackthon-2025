@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5qweca6dy5rp"]
+[gd_scene load_steps=4 format=3 uid="uid://c5qweca6dy5rp"]
 
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_e4ggw"]
 [ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scene/draggable/draggable.tscn" id="1_iv6f8"]
+[ext_resource type="PackedScene" uid="uid://c8wahloi8tnsd" path="res://scene/port/port.tscn" id="3_mih6t"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,3 +25,43 @@ _spawn_into = NodePath("..")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Draggable" parent="." instance=ExtResource("1_iv6f8")]
+layout_mode = 0
+
+[node name="Port" parent="Draggable" instance=ExtResource("3_mih6t")]
+
+[node name="Polygon2D" type="Polygon2D" parent="Draggable/Port"]
+polygon = PackedVector2Array(10, -10, 10, 11, -10, 10, -10, -10)
+
+[node name="Port2" parent="Draggable" instance=ExtResource("3_mih6t")]
+position = Vector2(51, 40)
+
+[node name="Polygon2D" type="Polygon2D" parent="Draggable/Port2"]
+polygon = PackedVector2Array(10, -10, 10, 11, -10, 10, -10, -10)
+
+[node name="Draggable3" parent="." instance=ExtResource("1_iv6f8")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 38.0
+offset_right = 138.0
+offset_bottom = 85.0
+
+[node name="Port2" parent="Draggable3" instance=ExtResource("3_mih6t")]
+position = Vector2(8, 42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Draggable3/Port2"]
+polygon = PackedVector2Array(10, -10, 10, 11, -10, 10, -10, -10)
+
+[node name="Port2" parent="Draggable3/Port2" instance=ExtResource("3_mih6t")]
+position = Vector2(39, -37)
+
+[node name="Polygon2D" type="Polygon2D" parent="Draggable3/Port2/Port2"]
+polygon = PackedVector2Array(10, -10, 10, 11, -10, 10, -10, -10)
+
+[node name="Draggable4" parent="." instance=ExtResource("1_iv6f8")]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 109.0
+offset_right = 80.0
+offset_bottom = 156.0
