@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgscuef0vujkm"]
+
+[ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scene/draggable/draggable.tscn" id="1_dqj8y"]
+[ext_resource type="Texture2D" uid="uid://0tyirppikmjk" path="res://image/rect1153-3-7.png" id="2_olek2"]
+
+[node name="Draggable" instance=ExtResource("1_dqj8y")]
+icon = ExtResource("2_olek2")
