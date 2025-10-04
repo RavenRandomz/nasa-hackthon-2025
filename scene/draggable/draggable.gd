@@ -1,4 +1,5 @@
 extends Button
+class_name Draggable
 # This determines the state
 enum {STILL, DRAG}
 
