@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5qweca6dy5rp"]
+[gd_scene load_steps=3 format=3 uid="uid://c5qweca6dy5rp"]
 
+[ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_e4ggw"]
 [ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scene/draggable/draggable.tscn" id="1_iv6f8"]
 
 [node name="Control" type="Control"]
@@ -10,5 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Draggable" parent="." instance=ExtResource("1_iv6f8")]
+[node name="DraggableSpawner" parent="." node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_e4ggw")]
 layout_mode = 0
+offset_left = 360.0
+offset_top = 179.0
+offset_right = 520.0
+offset_bottom = 273.0
+_scene_to_spawn = ExtResource("1_iv6f8")
+_spawn_into = NodePath("..")
