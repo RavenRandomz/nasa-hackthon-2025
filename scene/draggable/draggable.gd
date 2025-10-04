@@ -20,7 +20,7 @@ func _follow_cursor():
 	position = _get_global_mouse_pos() + _mouse_delta
 	
 func _process(delta: float):
-	if _state == STILL:
+	if _state == DRAG:
 		_follow_cursor()
 
 
