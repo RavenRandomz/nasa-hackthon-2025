@@ -8,7 +8,8 @@ func _on_pressed() -> void:
 	pass
 
 func _on_button_down() -> void:
-	var spawned = _scene_to_spawn.instantiate() 
+	var spawned : Draggable = _scene_to_spawn.instantiate() 
+	spawned.set_position(get_transform().get_origin())
 	_spawn_into.add_child(spawned)
 	spawned._on_button_down()
 	pass # Replace with function body.
