@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bixf7sjfjfthx"]
+[gd_scene load_steps=5 format=3 uid="uid://bixf7sjfjfthx"]
 
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_imcdt"]
 [ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scene/draggable/draggable.tscn" id="2_mj62l"]
+[ext_resource type="Texture2D" uid="uid://0tyirppikmjk" path="res://image/rect1153-3-7.png" id="3_mrg5r"]
+[ext_resource type="PackedScene" uid="uid://cgscuef0vujkm" path="res://scene/module/basic_storage/basic_storage.tscn" id="4_ij8cb"]
 
 [node name="Editor" type="Control"]
 layout_mode = 3
@@ -231,7 +233,8 @@ size_flags_horizontal = 3
 
 [node name="DraggableSpawner8" parent="VSplitContainer/ScrollContainer/HFlowContainer2/HFlowContainer4/MarginContainer" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
-_scene_to_spawn = ExtResource("2_mj62l")
+icon = ExtResource("3_mrg5r")
+_scene_to_spawn = ExtResource("4_ij8cb")
 _spawn_into = NodePath("../../../../../Shipspace")
 
 [node name="MarginContainer3" type="MarginContainer" parent="VSplitContainer/ScrollContainer/HFlowContainer2/HFlowContainer4"]
