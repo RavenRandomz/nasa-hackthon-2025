@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5qweca6dy5rp"]
+[gd_scene load_steps=5 format=3 uid="uid://c5qweca6dy5rp"]
 
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_e4ggw"]
 [ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scene/draggable/draggable.tscn" id="1_iv6f8"]
+[ext_resource type="PackedScene" uid="uid://c8wahloi8tnsd" path="res://scene/port/port.tscn" id="3_mih6t"]
+[ext_resource type="PackedScene" uid="uid://dmy5xq3bfy6r4" path="res://scene/module/module.tscn" id="4_dd6y4"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,3 +26,60 @@ _spawn_into = NodePath("..")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Draggable" parent="Control" instance=ExtResource("1_iv6f8")]
+layout_mode = 0
+
+[node name="Sprite2D" parent="Control/Draggable" instance=ExtResource("4_dd6y4")]
+position = Vector2(31, 26)
+
+[node name="Port2" parent="Control/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(52, 23)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Draggable/Sprite2D/Port2"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Control" type="Control" parent="Control/Draggable/Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Port3" parent="Control/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(98, 40)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Draggable/Sprite2D/Port3"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Port4" parent="Control/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(78, -7)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Draggable/Sprite2D/Port4"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Sprite2D" parent="Control" instance=ExtResource("4_dd6y4")]
+position = Vector2(31, 26)
+
+[node name="Port2" parent="Control/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(52, 23)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Sprite2D/Port2"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Control" type="Control" parent="Control/Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Port3" parent="Control/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(98, 40)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Sprite2D/Port3"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Port4" parent="Control/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(78, -7)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Sprite2D/Port4"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
