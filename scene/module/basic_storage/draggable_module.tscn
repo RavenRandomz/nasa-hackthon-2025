@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgkm856cj7um6"]
+
+[ext_resource type="Texture2D" uid="uid://0tyirppikmjk" path="res://image/rect1153-3-7.png" id="1_tkvqa"]
+[ext_resource type="Script" uid="uid://s7fiie8saace" path="res://scene/draggable/draggable.gd" id="2_j18j5"]
+
+[node name="DraggableModule" type="Button"]
+offset_right = 532.0
+offset_bottom = 522.0
+icon = ExtResource("1_tkvqa")
+script = ExtResource("2_j18j5")
+metadata/_custom_type_script = "uid://s7fiie8saace"
