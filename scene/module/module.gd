@@ -21,3 +21,6 @@ func _on_port_connected():
 func _on_port_disconnected():
 	_connected_port_count -= 1
 	print(_connected_port_count)
+
+func connected() -> bool:
+	return _connected_port_count > 0
