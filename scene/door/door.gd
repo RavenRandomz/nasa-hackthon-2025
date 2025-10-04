@@ -10,11 +10,13 @@ signal door_disconnected()
 var _connected_door_count = 0
 
 func _connected_check():
-	if _connected_door_count == 0:
+	# Prevent repeats
+	if _connected_door_count == 1:
 		door_connected.emit()
 		print("Connected")
 		
 func _disconnected_check():
+	# Prevent false alarms if multiple intersections
 	if _connected_door_count == 0:
 		door_disconnected.emit()
 		print("Disconnected")
