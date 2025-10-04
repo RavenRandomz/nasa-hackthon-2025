@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dyc7x16yp3jes"
+path="res://.godot/imported/basemodule_garage.obj-6f37757404376677cedf4299402affdd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/basemodule_garage.obj-6f37757404376677cedf4299402affdd.mesh"]
+
+source_file="res://ext/KayKit_Space_Base_Bits_1.0_FREE/Assets/obj/basemodule_garage.obj"
+dest_files=["res://.godot/imported/basemodule_garage.obj-6f37757404376677cedf4299402affdd.mesh", "res://.godot/imported/basemodule_garage.obj-6f37757404376677cedf4299402affdd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://clyl3dteyakha"]
 
-[ext_resource type="Texture2D" uid="uid://cbganrr54e7y8" path="res://Assets/NightScape.svg" id="1_fdsrw"]
-[ext_resource type="PackedScene" uid="uid://dr0m6wwcl28oc" path="res://scene/UI/menu_ui.tscn" id="2_6fdep"]
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://Assets/SpaceChallengeBackgrond.png" id="1_fdsrw"]
+[ext_resource type="PackedScene" uid="uid://mkti1j6kmqnc" path="res://scene/UI/main_menu_ui.tscn" id="2_6fdep"]
 
 [node name="basic_menu" type="Node2D"]
 
 [node name="Background" type="Node" parent="."]
 
-[node name="NightScape" type="Sprite2D" parent="Background"]
-position = Vector2(573.99994, 330)
-scale = Vector2(1.09981, 0.8844086)
+[node name="SpaceChallenge" type="Sprite2D" parent="Background"]
+position = Vector2(595, 500.00003)
+scale = Vector2(1.8820951, 1.8827277)
 texture = ExtResource("1_fdsrw")
 
-[node name="MenuUI" parent="." instance=ExtResource("2_6fdep")]
+[node name="MainMenuUI" parent="." instance=ExtResource("2_6fdep")]

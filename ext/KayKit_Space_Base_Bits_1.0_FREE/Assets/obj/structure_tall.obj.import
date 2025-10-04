@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcaxgd1iokr77"
+path="res://.godot/imported/structure_tall.obj-dcfe7bacc4f8aa418e32089fb1924330.mesh"
+
+[deps]
+
+files=["res://.godot/imported/structure_tall.obj-dcfe7bacc4f8aa418e32089fb1924330.mesh"]
+
+source_file="res://ext/KayKit_Space_Base_Bits_1.0_FREE/Assets/obj/structure_tall.obj"
+dest_files=["res://.godot/imported/structure_tall.obj-dcfe7bacc4f8aa418e32089fb1924330.mesh", "res://.godot/imported/structure_tall.obj-dcfe7bacc4f8aa418e32089fb1924330.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

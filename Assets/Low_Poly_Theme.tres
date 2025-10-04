@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bgi1he5teq16t"]
+
+[ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://Assets/Fonts/nano-sharp.ttf" id="1_uimc8"]
+
+[resource]
+Button/fonts/font = ExtResource("1_uimc8")
+Label/fonts/font = ExtResource("1_uimc8")
