@@ -4,4 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0tyirppikmjk" path="res://image/rect1153-3-7.png" id="2_olek2"]
 
 [node name="Draggable" instance=ExtResource("1_dqj8y")]
+offset_right = 532.0
+offset_bottom = 522.0
+scale = Vector2(0.17077762, 0.17077762)
 icon = ExtResource("2_olek2")
