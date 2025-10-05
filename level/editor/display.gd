@@ -25,6 +25,5 @@ func _on_update_of_score(score_data):
 
 
 func _on_shipspace_resource_changed(resource_data: Variant) -> void:
-	print("Fuck")
 	_on_update_of_score(resource_data)
 	pass # Replace with function body.
