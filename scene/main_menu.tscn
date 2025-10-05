@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce6na1ehwg27g"]
+
+[ext_resource type="PackedScene" uid="uid://mkti1j6kmqnc" path="res://scene/UI/main_menu_ui.tscn" id="1_hxu56"]
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://Assets/SpaceChallengeBackgrond.png" id="2_2fwvj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdsrw"]
+texture = ExtResource("2_2fwvj")
+modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[node name="main_menu" type="Node2D"]
+
+[node name="MainMenuUI" parent="." instance=ExtResource("1_hxu56")]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fdsrw")
