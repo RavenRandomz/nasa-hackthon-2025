@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1nwyfn26bx8x"]
+[gd_scene load_steps=4 format=3 uid="uid://d1nwyfn26bx8x"]
 
 [ext_resource type="Script" uid="uid://s7fiie8saace" path="res://scene/draggable/draggable.gd" id="1_30a5l"]
 [ext_resource type="Texture2D" uid="uid://brxi03hiubmi2" path="res://scene/module/basic_kitchen/spacehack_scaled_kitchen.png" id="1_j3gkc"]
+[ext_resource type="PackedScene" uid="uid://dmy5xq3bfy6r4" path="res://scene/module/module.tscn" id="3_dv084"]
 
 [node name="Draggable" type="Button"]
 offset_right = 53.0
@@ -9,6 +10,15 @@ offset_bottom = 47.0
 icon = ExtResource("1_j3gkc")
 flat = true
 script = ExtResource("1_30a5l")
+
+[node name="Sprite2D" parent="." instance=ExtResource("3_dv084")]
+resource_data = {
+"food": 10,
+"housing": 0,
+"power": 0,
+"waste_management": 0,
+"water": 0
+}
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

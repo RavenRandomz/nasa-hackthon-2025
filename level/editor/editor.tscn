@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bixf7sjfjfthx"]
+[gd_scene load_steps=12 format=3 uid="uid://bixf7sjfjfthx"]
 
 [ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://Assets/Fonts/Nano/nano-sharp.ttf" id="1_75nhd"]
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_imcdt"]
+[ext_resource type="Script" uid="uid://dacniiidadoya" path="res://scene/module_holder/module_holder.gd" id="2_bjv3x"]
 [ext_resource type="Texture2D" uid="uid://bc5m4s8id0xyp" path="res://scene/module/u_storage/u-dining-scaled.png" id="5_4o2sj"]
 [ext_resource type="PackedScene" uid="uid://d1nwyfn26bx8x" path="res://scene/module/basic_kitchen/basic_kitchen.tscn" id="5_75nhd"]
 [ext_resource type="PackedScene" uid="uid://ci2c6f2abkf85" path="res://scene/module/u_storage/u_storage.tscn" id="6_0pwus"]
 [ext_resource type="Texture2D" uid="uid://brxi03hiubmi2" path="res://scene/module/basic_kitchen/spacehack_scaled_kitchen.png" id="6_4o2sj"]
 [ext_resource type="Texture2D" uid="uid://b1rdxr6j0ekma" path="res://scene/module/dining_hall/dining_hall.png" id="7_0pwus"]
 [ext_resource type="PackedScene" uid="uid://qc1x8hbop78s" path="res://scene/module/dining_hall/dining_hall.tscn" id="8_vupvg"]
+[ext_resource type="Script" uid="uid://bi6tchch3rdwi" path="res://level/editor/display.gd" id="10_nu1e8"]
 
 [sub_resource type="Theme" id="Theme_4o2sj"]
 Button/colors/font_color = Color(0, 0.68235296, 0.65882355, 1)
@@ -35,6 +37,7 @@ drag_area_highlight_in_editor = true
 [node name="Shipspace" type="Control" parent="VSplitContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+script = ExtResource("2_bjv3x")
 
 [node name="MarginContainer" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2
@@ -69,10 +72,16 @@ flat = true
 _scene_to_spawn = ExtResource("8_vupvg")
 _spawn_into = NodePath("../../../../Shipspace")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("_food_label", "_housing_label", "_waste_label", "_water_label", "_power_label")]
 layout_mode = 0
 offset_right = 142.0
 offset_bottom = 49.0
+script = ExtResource("10_nu1e8")
+_food_label = NodePath("VBoxContainer/Food/FoodScore")
+_housing_label = NodePath("VBoxContainer/Housing/FoodScore")
+_waste_label = NodePath("VBoxContainer/Waste Management/FoodScore")
+_water_label = NodePath("VBoxContainer/Power/FoodScore")
+_power_label = NodePath("VBoxContainer/Water/FoodScore")
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
@@ -88,18 +97,64 @@ layout_mode = 2
 text = "This is a cool thing
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Food" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Food"]
+layout_mode = 2
+text = "Food"
+
+[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Food"]
+layout_mode = 2
+text = "234234"
+
+[node name="Housing" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Housing"]
+layout_mode = 2
+text = "Housing"
+
+[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Housing"]
+layout_mode = 2
+text = "234234"
+
+[node name="Waste Management" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Waste Management"]
 layout_mode = 2
-text = "Test"
+text = "Waste"
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Waste Management"]
 layout_mode = 2
+text = "234234"
+
+[node name="Water" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Water"]
+layout_mode = 2
+text = "Water
+"
+
+[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Water"]
+layout_mode = 2
+text = "234234"
+
+[node name="Power" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Power"]
+layout_mode = 2
+text = "Power"
+
+[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Power"]
+layout_mode = 2
+text = "234234"
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[connection signal="child_entered_tree" from="VSplitContainer/Shipspace" to="VSplitContainer/Shipspace" method="_on_child_entered_tree"]
+[connection signal="resource_changed" from="VSplitContainer/Shipspace" to="MarginContainer" method="_on_shipspace_resource_changed"]

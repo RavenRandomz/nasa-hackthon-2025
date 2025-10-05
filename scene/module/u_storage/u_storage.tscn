@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci2c6f2abkf85"]
+[gd_scene load_steps=4 format=3 uid="uid://ci2c6f2abkf85"]
 
 [ext_resource type="Script" uid="uid://s7fiie8saace" path="res://scene/draggable/draggable.gd" id="1_3nfkc"]
 [ext_resource type="Texture2D" uid="uid://bc5m4s8id0xyp" path="res://scene/module/u_storage/u-dining-scaled.png" id="1_trdhp"]
+[ext_resource type="PackedScene" uid="uid://dmy5xq3bfy6r4" path="res://scene/module/module.tscn" id="3_wdbt1"]
 
 [node name="Draggable" type="Button"]
 offset_right = 53.0
@@ -9,6 +10,15 @@ offset_bottom = 47.0
 icon = ExtResource("1_trdhp")
 flat = true
 script = ExtResource("1_3nfkc")
+
+[node name="Sprite2D" parent="." instance=ExtResource("3_wdbt1")]
+resource_data = {
+"food": 10,
+"housing": 1,
+"power": 0,
+"waste_management": 3,
+"water": 1
+}
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
