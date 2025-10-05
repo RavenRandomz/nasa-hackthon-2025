@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvjpjwcgynvij"]
+
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_x04b6"]
+[ext_resource type="PackedScene" uid="uid://mkti1j6kmqnc" path="res://scenes/UI/main_menu_ui.tscn" id="2_cchgq"]
+
+[node name="basic_menu" type="Node2D"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="SpaceChallenge" type="Sprite2D" parent="Background"]
+position = Vector2(595, 500.00003)
+scale = Vector2(1.8820951, 1.8827277)
+texture = ExtResource("1_x04b6")
+
+[node name="MainMenuUI" parent="." instance=ExtResource("2_cchgq")]

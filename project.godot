@@ -14,6 +14,7 @@ config/name="interstellar-makeover"
 run/main_scene="uid://c5qweca6dy5rp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://mkti1j6kmqnc"
 
 [editor_plugins]
 

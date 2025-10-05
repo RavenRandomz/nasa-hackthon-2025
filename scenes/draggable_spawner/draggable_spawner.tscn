@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl5vui1jt6o1w"]
+
+[ext_resource type="Script" uid="uid://cjrkb82de2knc" path="res://scripts/draggable_spawner.gd" id="1_axbvl"]
+
+[node name="DraggableSpawner" type="Button"]
+offset_right = 272.0
+offset_bottom = 240.0
+script = ExtResource("1_axbvl")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

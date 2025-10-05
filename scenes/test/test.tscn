@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5qweca6dy5rp"]
+
+[ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scenes/draggable/draggable.tscn" id="1_iv6f8"]
+[ext_resource type="PackedScene" uid="uid://cgscuef0vujkm" path="res://scenes/module/basic_storage/basic_storage.tscn" id="2_m5u1r"]
+[ext_resource type="Script" uid="uid://dacniiidadoya" path="res://scripts/module_holder/module_holder.gd" id="3_auxoc"]
+[ext_resource type="PackedScene" uid="uid://c8wahloi8tnsd" path="res://scenes/port/port.tscn" id="3_mih6t"]
+[ext_resource type="PackedScene" uid="uid://dmy5xq3bfy6r4" path="res://scenes/module/module.tscn" id="4_dd6y4"]
+[ext_resource type="PackedScene" uid="uid://bvx3tisgcqw14" path="res://scenes/auto_spawner/auto_spawner.tscn" id="6_m5u1r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AutoSpawner" parent="." node_paths=PackedStringArray("_spawn_into") instance=ExtResource("6_m5u1r")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 364.0
+offset_right = 639.0
+offset_bottom = 604.0
+_spawn_into = NodePath("../Control")
+
+[node name="Draggable" parent="AutoSpawner" instance=ExtResource("2_m5u1r")]
+layout_mode = 0
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_auxoc")
+
+[node name="Sprite2D" parent="Control" instance=ExtResource("4_dd6y4")]
+position = Vector2(31, 26)
+resource_data = {
+"food": 1,
+"housing": 45,
+"power": 12,
+"waste_management": 456456,
+"water": 34234
+}
+
+[node name="Port2" parent="Control/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(52, 23)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Sprite2D/Port2"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Control" type="Control" parent="Control/Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Port3" parent="Control/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(98, 40)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Sprite2D/Port3"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Port4" parent="Control/Sprite2D" instance=ExtResource("3_mih6t")]
+position = Vector2(78, -7)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/Sprite2D/Port4"]
+polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Draggable" parent="." instance=ExtResource("1_iv6f8")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 364.0
+offset_right = 420.0
+offset_bottom = 411.0
+
+[node name="Sprite2D" parent="Draggable" instance=ExtResource("4_dd6y4")]
+position = Vector2(31, 26)
+resource_data = {
+"food": 34,
+"housing": 23,
+"power": 434,
+"waste_management": 234,
+"water": 23
+}
+
+[connection signal="child_entered_tree" from="Control" to="Control" method="_on_child_entered_tree"]
