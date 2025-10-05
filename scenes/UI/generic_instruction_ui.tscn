@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://pyk0m4wtp4m3"]
+[gd_scene load_steps=5 format=3 uid="uid://pyk0m4wtp4m3"]
 
 [ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="1_31jmx"]
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_k4bdw"]
 [ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://assets/fonts/Nano/nano-sharp.ttf" id="2_gaq5j"]
-[ext_resource type="PackedScene" uid="uid://d3urvgqa1o3oh" path="res://assets/icons/home_button.tscn" id="4_o2dpc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sso6l"]
+texture = ExtResource("1_k4bdw")
+modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
 
 [node name="generic_instruction_ui" type="CanvasLayer"]
 metadata/_edit_horizontal_guides_ = [651.0]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sso6l")
 
 [node name="Title" type="Label" parent="."]
 anchors_preset = -1
@@ -23,37 +32,36 @@ theme_override_fonts/font = ExtResource("2_gaq5j")
 theme_override_font_sizes/font_size = 50
 text = "How to play"
 
-[node name="PageCounter" type="Label" parent="."]
-anchors_preset = -1
-anchor_right = 0.19500001
-anchor_bottom = 0.273
-offset_left = 1044.0
-offset_top = 48.0
-offset_right = 869.36
-offset_bottom = -93.90401
-theme = ExtResource("1_31jmx")
-theme_override_font_sizes/font_size = 20
-text = "1/X"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -152.0
-offset_right = 399.0
-offset_bottom = 236.0
-grow_horizontal = 2
+offset_left = 109.0
+offset_top = -201.0
+offset_right = 833.0
+offset_bottom = 187.0
 grow_vertical = 2
-text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis porta massa id pharetra. Aenean nunc odio, semper eget nulla eget, aliquet placerat ipsum. Etiam quis consequat nulla. Donec viverra condimentum metus, sed bibendum massa fringilla quis. Donec scelerisque aliquet consequat. Sed hendrerit enim ac velit lobortis, sit amet efficitur eros elementum. Duis dignissim purus enim, at pretium metus gravida ac.
+scale = Vector2(1.3169224, 1.238433)
+theme = ExtResource("1_31jmx")
+text = "“Greetings Astronaught!”
 
-Donec ut dignissim dui. Mauris diam justo, porttitor sit amet leo at, laoreet dapibus dolor. Sed libero quam, tincidunt quis odio elementum, varius tincidunt libero. Aliquam rutrum sollicitudin nisl. Curabitur sed nunc egestas, molestie orci vel, elementum tellus. Proin tempus, ante vitae porttitor posuere, nisi elit eleifend eros, quis pellentesque dolor metus eu dolor. Etiam sem velit, porta eget lobortis vel, interdum quis libero. Fusce in dolor ullamcorper, congue purus vitae, commodo lacus. Quisque quis eros lectus. Maecenas sed pulvinar ipsum, quis cursus leo. Suspendisse vehicula tellus laoreet, egestas quam in, tempor nibh. "
+“Welcome to Interstellar Makeover!”
 
-[node name="home_button" parent="." instance=ExtResource("4_o2dpc")]
-offset_left = 8.0
-offset_top = 503.99997
-offset_right = 8.0
-offset_bottom = 504.0
-scale = Vector2(0.11100906, 0.22780526)
+\"We have a Galactic Problem that requires your attention!\"
+
+Your task: Design a sustainable habitat for you and your crew that will safely house all of you on your interstellar journeys! 
+
+The Specification:
+
+You will choose your crew size and mission duration(in the calculator tab) to base your calculations off of. 
+Next, you will use all the tools at your disposal to put your brain to the test and design the perfect space station for a successful mission!
+Based on how many and how long, you will need to meet a minimum number of resource requirements in order to make it back safely. These requirements include having enough of each type of room to sustain the amount of people in areas such as sleeping quarters, exercise space, recreation and dining areas, food preparation and storage areas, Command and control room, a medical bay, hygiene space, maintenance room, logistics/ storage room, waste management/ collection space, private work quarters and an EVA suit and airlock bay as the main types.
+
+Each of these rooms/spaces carry their own resources when added, and it will carry a calculator on your screen as you progress to keep track of your progress. Make sure your resources are up to par! All calculations are based on official NASA data. 
+But be careful!! There are strict requirements regarding room placement and what each room type entails. You don’t want to have to make dinner next to Richard’s restroom time! You cannot place a waste area next to any area with food, hygiene, health or human rejuvenation.
+There are volume requirements based on the specification of crew size and mission duration which impacts the amount of each of the room types to have with food specification as well.
+
+You will drag and drop your resources to create your ideal space station to make it back home!
+Think you're done? Run it to see if your resources are enough to complete a successful mission!
+Do you have what it takes to complete the challenge and get back to Earth?
+"
