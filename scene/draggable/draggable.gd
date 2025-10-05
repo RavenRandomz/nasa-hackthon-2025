@@ -34,6 +34,8 @@ func _input(event):
 				rotate(-90)
 			elif event.keycode == KEY_E:
 				rotate(90)
+		elif event is InputEventMouse and event.is_pressed():
+			_state = STILL
 
 
 func _on_button_up() -> void:
