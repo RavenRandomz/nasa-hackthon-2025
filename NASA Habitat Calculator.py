@@ -1,41 +1,40 @@
 import math
 voids_percent = 0.01
 
-def calculate_primary_room_volume(crew_size, mission_days):
-
-    #Base crew size
+def calculate_nhv_volume(crew_size, mission_days):
+    # Base crew size
     crew_set_per_four = math.ceil(crew_size / 4)
 
-    #FIXED VALUES (dont change)
+    # FIXED VALUES (dont change)
     fixed_values = {
-        'medical_care': 5.80, #shared by all crew
-        'medical_computer': 1.20, #single terminal
-        'command_control': 3.42, #2 person station
+        'medical_care': 5.80,  # shared by all crew
+        'medical_computer': 1.20,  # single terminal
+        'command_control': 3.42,  # 2 person station
         'maintenance_computer': 3.40,
-        'maintenance_workstation': 4.82, #overlapped with EVA Suit Testing
+        'maintenance_workstation': 4.82,  # overlapped with EVA Suit Testing
         'meal_prep': 4.35,
         'meal_prep_table': 3.30,
         'logistics_temp_storage': 6.00,
         'waste_management': 3.76
     }
-    #STEPPED VALUES (1 unit per 4 crew) ROUNDED UP
+    # STEPPED VALUES (1 unit per 4 crew) ROUNDED UP
     exercise_values = {
         'cycle': 3.38 * crew_set_per_four,
         'treadmill': 6.12 * crew_set_per_four,
         'resistive': 3.92 * crew_set_per_four,
     }
 
-    #LINEAR SCALING
+    # LINEAR SCALING
     per_person = {
-        'sleep_relaxation': 3.49 * crew_size, #Individual Quarters
-        'work_surface': 4.35 * crew_size, #Personal desk space
+        'sleep_relaxation': 3.49 * crew_size,  # Individual Quarters
+        'work_surface': 4.35 * crew_size,  # Personal desk space
         # 1 station per 2 members
         'hygiene_cleansing': 4.35 * (math.ceil(crew_size / 2)),
         'hygiene_grooming': 2.34 * (math.ceil(crew_size / 2)),
         'waste_collection': 2.36 * (math.ceil(crew_size / 2))
     }
 
-    #GROUP SCALING (discrete jumps by crew size)
+    # GROUP SCALING (discrete jumps by crew size)
     if crew_size <= 4:
         group_values = {
             'recreation_training': 18.20,
@@ -53,10 +52,10 @@ def calculate_primary_room_volume(crew_size, mission_days):
             'dining_table': 15.14 * scaling_factor
         }
 
-    #Duration Adjustment
+    # Duration Adjustment
     minimum_duration = 180
     duration_factor = 1.0
-    #possible calculation for minimum
+    # possible calculation for minimum
 
     # Calculate TOTAL NHV (cubic meters)
     total_nhv = (
@@ -66,7 +65,49 @@ def calculate_primary_room_volume(crew_size, mission_days):
             sum(group_values.values())
     )
 
-    return total_nhv, fixed_values, exercise_values, per_person, group_values
+    all_values = {}
+    all_values.update(fixed_values)
+    all_values.update(exercise_values)
+    all_values.update(per_person)
+    all_values.update(group_values)
+
+    return total_nhv, all_values
+
+
+
+def calculate_room_volumes(all_values):
+
+    medical = ['medical_care', 'medical_computer']
+    command_control = ['command_control']
+    maintenance = ['maintenance_computer', 'maintenance_workstation']
+    meal_prep = ['meal_prep', 'meal_prep_table']
+    #EVA SUIT + AIR LOCK
+    logistics_temp = ['logistics_temp_storage']
+    waste = ['waste_management', 'waste_collection']
+    exercise = ['cycle', 'treadmill', 'resistive']
+    sleep = ['sleep_relaxation']
+    work_quarters = ['work_surface']
+    hygiene = ['hygiene_cleansing', 'hygiene_grooming']
+    recreation_dining = ['recreation_training', 'dining_table']
+
+    room_types = [medical,command_control,maintenance,meal_prep,
+                  logistics_temp,waste,exercise,sleep,work_quarters,hygiene,
+                  recreation_dining]
+
+    room_names = ['medical', 'command_control', 'maintenance', 'meal_prep', 'logistics_temp',
+                  'waste', 'exercise', 'sleep', 'work_quarters', 'hygiene', 'recreation_dining']
+
+    # Sum volumes for each room
+    room_volumes = {}
+    for name, modules in zip(room_names, room_types):
+        total = 0
+
+        #Name is key of Values within room volumes
+        for m in modules:
+            total += all_values[m]  # Add the value of each module
+        room_volumes[name] = total
+
+    return room_volumes
 
 def calculate_storage_mass(crew_size, mission_days):
     #storage scales with crew and Duration
@@ -153,7 +194,20 @@ def calculate_storage_volume(mass_dict):
 
     return total_volume
 
-#mass_dict = calculate_storage_mass(crew_size,mission_days)
-#storage_volume = calculate_storage_volume(mass_dict)
 
-#total_volume =
+#EDIT VALUES HERE
+crew_size = 1
+mission_days = 1
+
+#TOTAL STORAGE VOLUME
+mass_dict = calculate_storage_mass(crew_size,mission_days)
+storage_volume = calculate_storage_volume(mass_dict)
+
+#TOTAL NET HABITABLE VOLUME
+total_nhv, all_values = calculate_nhv_volume(crew_size, mission_days)
+
+#VOLUMES FOR EACH ROOM
+room_volumes = calculate_room_volumes(all_values)
+
+#TOTAL PRESSURIZED VOLUME
+total_volume = total_nhv + storage_volume
