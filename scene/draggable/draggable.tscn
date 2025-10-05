@@ -5,6 +5,7 @@
 [node name="Draggable" type="Button"]
 offset_right = 53.0
 offset_bottom = 47.0
+flat = true
 script = ExtResource("1_o1u3f")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
