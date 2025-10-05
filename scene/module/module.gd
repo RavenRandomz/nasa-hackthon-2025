@@ -4,6 +4,8 @@ class_name Module
 
 var _ports: Array[Port]
 
+var _resource_data : Dictionary[String, int]
+
 var _connected_port_count = 0
 
 func _ready():
