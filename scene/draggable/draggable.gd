@@ -24,6 +24,17 @@ func _process(delta: float):
 	if _state == DRAG:
 		_follow_cursor()
 
+func rotate(degrees):
+	rotation_degrees += degrees
+
+func _input(event):
+	if _state == DRAG:
+		if event is InputEventKey and event.is_pressed():
+			if event.keycode == KEY_Q:
+				rotate(-90)
+			elif event.keycode == KEY_E:
+				rotate(90)
+
 
 func _on_button_up() -> void:
 	_state = STILL
