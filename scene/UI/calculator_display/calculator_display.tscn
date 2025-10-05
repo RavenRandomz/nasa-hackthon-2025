@@ -1,0 +1,162 @@
+[gd_scene load_steps=3 format=3 uid="uid://mlo0uy4edfme"]
+
+[ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://Assets/Low_Poly_Theme.tres" id="1_tudv6"]
+[ext_resource type="Script" uid="uid://dieae5sp63e50" path="res://scene/UI/calculator_display/calculator_display.gd" id="2_5sdl1"]
+
+[node name="CalculatorDisplay" type="MarginContainer" node_paths=PackedStringArray("_crew_size_input", "_mission_days_input", "_nhv_label", "_room_areas_label", "_room_volumes_label", "_storage_volume_label", "_storage_area_label", "_food_storage_area_label", "_total_area_label")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_tudv6")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+script = ExtResource("2_5sdl1")
+_crew_size_input = NodePath("VBoxContainer/Input/Input/CrewSize/LineEdit")
+_mission_days_input = NodePath("VBoxContainer/Input/Input/Mission Days/LineEdit")
+_nhv_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/NHV/Value")
+_room_areas_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Room Areas/Value")
+_room_volumes_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Room Volumes/Value")
+_storage_volume_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Storage Volume/Value")
+_storage_area_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Storage Area/Value")
+_food_storage_area_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Food Storage Area/Value")
+_total_area_label = NodePath("VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Total Area/Value")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Input" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Input" type="VBoxContainer" parent="VBoxContainer/Input"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Input/Input"]
+layout_mode = 2
+text = "Input"
+
+[node name="CrewSize" type="HBoxContainer" parent="VBoxContainer/Input/Input"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Input/Input/CrewSize"]
+layout_mode = 2
+text = "Crew Size:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Input/Input/CrewSize"]
+layout_mode = 2
+
+[node name="Mission Days" type="HBoxContainer" parent="VBoxContainer/Input/Input"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Input/Input/Mission Days"]
+layout_mode = 2
+text = "Mission days:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Input/Input/Mission Days"]
+layout_mode = 2
+
+[node name="Output" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Output"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer"]
+layout_mode = 2
+text = "Results"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer"]
+layout_mode = 2
+
+[node name="Output" type="VBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NHV" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/NHV"]
+layout_mode = 2
+text = "Total NVH:"
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/NHV"]
+layout_mode = 2
+text = "0"
+
+[node name="Room Volumes" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Room Volumes"]
+layout_mode = 2
+text = "Room Volumes: "
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Room Volumes"]
+layout_mode = 2
+text = "0"
+
+[node name="Room Areas" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Room Areas"]
+layout_mode = 2
+text = "Room Areas: "
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Room Areas"]
+layout_mode = 2
+text = "0"
+
+[node name="Storage Volume" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Storage Volume"]
+layout_mode = 2
+text = "Storage Volume: "
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/Output/Storage Volume"]
+layout_mode = 2
+text = "0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Storage Area" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Storage Area"]
+layout_mode = 2
+text = "Storage Area: "
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Storage Area"]
+layout_mode = 2
+text = "0"
+
+[node name="Food Storage Area" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Food Storage Area"]
+layout_mode = 2
+text = "Food Storage Area: "
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Food Storage Area"]
+layout_mode = 2
+text = "0"
+
+[node name="Total Area" type="HBoxContainer" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Total Area"]
+layout_mode = 2
+text = "Total Area: "
+
+[node name="Value" type="Label" parent="VBoxContainer/Output/VBoxContainer/HBoxContainer/VBoxContainer/Total Area"]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Calculate"
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]
