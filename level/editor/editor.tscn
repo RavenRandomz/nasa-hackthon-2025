@@ -47,62 +47,66 @@ script = ExtResource("2_bjv3x")
 
 [node name="MarginContainer" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/MarginContainer"]
 layout_mode = 2
-horizontal_scroll_mode = 2
 
-[node name="HFlowContainer2" type="HFlowContainer" parent="VSplitContainer/MarginContainer/ScrollContainer"]
+[node name="HFlowContainer2" type="HFlowContainer" parent="VSplitContainer/MarginContainer"]
 custom_minimum_size = Vector2(700, 7)
 layout_mode = 2
+alignment = 1
 
-[node name="DraggableSpawner" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner" parent="VSplitContainer/MarginContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("6_4o2sj")
 flat = true
 _scene_to_spawn = ExtResource("5_75nhd")
-_spawn_into = NodePath("../../../../Shipspace")
+_spawn_into = NodePath("../../../Shipspace")
 
-[node name="DraggableSpawner2" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner2" parent="VSplitContainer/MarginContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("5_4o2sj")
 flat = true
 _scene_to_spawn = ExtResource("6_0pwus")
-_spawn_into = NodePath("../../../../Shipspace")
+_spawn_into = NodePath("../../../Shipspace")
 
-[node name="DraggableSpawner3" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner3" parent="VSplitContainer/MarginContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("7_0pwus")
 flat = true
 _scene_to_spawn = ExtResource("8_vupvg")
-_spawn_into = NodePath("../../../../Shipspace")
+_spawn_into = NodePath("../../../Shipspace")
 
-[node name="BUnkMaker" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="BUnkMaker" parent="VSplitContainer/MarginContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("10_pf2um")
 flat = true
 _scene_to_spawn = ExtResource("11_v1b7q")
-_spawn_into = NodePath("../../../../Shipspace")
+_spawn_into = NodePath("../../../Shipspace")
 
-[node name="Power" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="Power" parent="VSplitContainer/MarginContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("12_rsvct")
 flat = true
 _scene_to_spawn = ExtResource("13_ideg8")
-_spawn_into = NodePath("../../../../Shipspace")
+_spawn_into = NodePath("../../../Shipspace")
 
-[node name="Endcap" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="Endcap" parent="VSplitContainer/MarginContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("14_544mu")
 flat = true
 _scene_to_spawn = ExtResource("15_xt1av")
-_spawn_into = NodePath("../../../../Shipspace")
+_spawn_into = NodePath("../../../Shipspace")
 
-[node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("_food_label", "_housing_label", "_waste_label", "_water_label", "_power_label")]
+[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/MarginContainer/HFlowContainer2"]
+layout_mode = 2
+
+[node name="Display" type="MarginContainer" parent="." node_paths=PackedStringArray("_food_label", "_housing_label", "_waste_label", "_water_label", "_power_label")]
 layout_mode = 0
 offset_right = 142.0
 offset_bottom = 49.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
 script = ExtResource("10_nu1e8")
 _food_label = NodePath("VBoxContainer/Food/FoodScore")
 _housing_label = NodePath("VBoxContainer/Housing/FoodScore")
@@ -110,78 +114,75 @@ _waste_label = NodePath("VBoxContainer/Waste Management/FoodScore")
 _water_label = NodePath("VBoxContainer/Power/FoodScore")
 _power_label = NodePath("VBoxContainer/Water/FoodScore")
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Display"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Display/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Display/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "This is a cool thing
 "
 
-[node name="Food" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Food" type="HBoxContainer" parent="Display/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Food"]
+[node name="Label" type="Label" parent="Display/VBoxContainer/Food"]
 layout_mode = 2
 text = "Food"
 
-[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Food"]
+[node name="FoodScore" type="Label" parent="Display/VBoxContainer/Food"]
 layout_mode = 2
 text = "234234"
 
-[node name="Housing" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Housing" type="HBoxContainer" parent="Display/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Housing"]
+[node name="Label" type="Label" parent="Display/VBoxContainer/Housing"]
 layout_mode = 2
 text = "Housing"
 
-[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Housing"]
+[node name="FoodScore" type="Label" parent="Display/VBoxContainer/Housing"]
 layout_mode = 2
 text = "234234"
 
-[node name="Waste Management" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Waste Management" type="HBoxContainer" parent="Display/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Waste Management"]
+[node name="Label" type="Label" parent="Display/VBoxContainer/Waste Management"]
 layout_mode = 2
 text = "Waste"
 
-[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Waste Management"]
+[node name="FoodScore" type="Label" parent="Display/VBoxContainer/Waste Management"]
 layout_mode = 2
 text = "234234"
 
-[node name="Water" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Water" type="HBoxContainer" parent="Display/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Water"]
+[node name="Label" type="Label" parent="Display/VBoxContainer/Water"]
 layout_mode = 2
 text = "Water
 "
 
-[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Water"]
+[node name="FoodScore" type="Label" parent="Display/VBoxContainer/Water"]
 layout_mode = 2
 text = "234234"
 
-[node name="Power" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Power" type="HBoxContainer" parent="Display/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Power"]
+[node name="Label" type="Label" parent="Display/VBoxContainer/Power"]
 layout_mode = 2
 text = "Power"
 
-[node name="FoodScore" type="Label" parent="MarginContainer/VBoxContainer/Power"]
+[node name="FoodScore" type="Label" parent="Display/VBoxContainer/Power"]
 layout_mode = 2
 text = "234234"
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="Control" type="Control" parent="Display"]
 layout_mode = 2
 
 [connection signal="child_entered_tree" from="VSplitContainer/Shipspace" to="VSplitContainer/Shipspace" method="_on_child_entered_tree"]
-[connection signal="resource_changed" from="VSplitContainer/Shipspace" to="MarginContainer" method="_on_shipspace_resource_changed"]
+[connection signal="resource_changed" from="VSplitContainer/Shipspace" to="Display" method="_on_shipspace_resource_changed"]
