@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://pyk0m4wtp4m3"]
+[gd_scene load_steps=4 format=3 uid="uid://pyk0m4wtp4m3"]
 
 [ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="1_31jmx"]
-[ext_resource type="Script" uid="uid://bgc852oystojc" path="res://home_button.gd" id="1_p3dm7"]
 [ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://assets/fonts/Nano/nano-sharp.ttf" id="2_gaq5j"]
 [ext_resource type="PackedScene" uid="uid://d3urvgqa1o3oh" path="res://assets/icons/home_button.tscn" id="4_o2dpc"]
 
 [node name="generic_instruction_ui" type="CanvasLayer"]
-script = ExtResource("1_p3dm7")
 metadata/_edit_horizontal_guides_ = [651.0]
 
 [node name="Title" type="Label" parent="."]
