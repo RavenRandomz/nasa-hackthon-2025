@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bixf7sjfjfthx"]
+[gd_scene load_steps=25 format=3 uid="uid://bixf7sjfjfthx"]
 
 [ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://assets/fonts/Nano/nano-sharp.ttf" id="1_75nhd"]
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scenes/draggable_spawner/draggable_spawner.tscn" id="1_imcdt"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brxi03hiubmi2" path="res://scene/module/basic_kitchen/spacehack_scaled_kitchen.png" id="6_4o2sj"]
 [ext_resource type="Texture2D" uid="uid://b1rdxr6j0ekma" path="res://scene/module/dining_hall/dining_hall.png" id="7_0pwus"]
 [ext_resource type="PackedScene" uid="uid://qc1x8hbop78s" path="res://scene/module/dining_hall/dining_hall.tscn" id="8_vupvg"]
-[ext_resource type="Script" uid="uid://bi6tchch3rdwi" path="res://level/editor/display.gd" id="10_nu1e8"]
+[ext_resource type="Script" uid="uid://bi6tchch3rdwi" path="res://scripts/display.gd" id="10_nu1e8"]
 [ext_resource type="Texture2D" uid="uid://dqo4ox8uknrmb" path="res://scene/module/bunk/bunk.png" id="10_pf2um"]
 [ext_resource type="PackedScene" uid="uid://dsokj3swxmhtj" path="res://scene/module/bunk/bunk.tscn" id="11_v1b7q"]
 [ext_resource type="Texture2D" uid="uid://dfehayad7jsk" path="res://scene/module/power/power.png" id="12_rsvct"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dkklbrlvkj78u" path="res://scene/module/endcap/endcap.png" id="14_544mu"]
 [ext_resource type="PackedScene" uid="uid://dypkimuptyhst" path="res://scene/module/endcap/endcap.tscn" id="15_xt1av"]
 [ext_resource type="PackedScene" uid="uid://mlo0uy4edfme" path="res://scene/UI/calculator_display/calculator_display.tscn" id="17_ideg8"]
+[ext_resource type="PackedScene" uid="uid://do18uq3pp0ix7" path="res://scenes/vfx/background/background_stars.tscn" id="18_ymaqb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ideg8"]
 content_margin_left = 4.0
@@ -297,6 +298,8 @@ visible = false
 layout_mode = 2
 theme = null
 metadata/_tab_index = 1
+
+[node name="BackgroundStars" parent="." instance=ExtResource("18_ymaqb")]
 
 [connection signal="child_entered_tree" from="VSplitContainer/Shipspace" to="VSplitContainer/Shipspace" method="_on_child_entered_tree"]
 [connection signal="resource_changed" from="VSplitContainer/Shipspace" to="TabContainer/Display" method="_on_shipspace_resource_changed"]

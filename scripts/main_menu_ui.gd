@@ -2,13 +2,11 @@ extends CanvasLayer
 
 @onready var  sandboxStart= "res://scenes/level/editor/editor.tscn"
 @onready var instructionsScreen = "res://scenes/UI/howToPlay.tscn"
-##@onready var learnMoreScreen = ""
 
-@onready var animationPlayer = $Buttons/StartButton/AnimationPlayer
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file(sandboxStart)
-	print("test")
+##	print("test")
 
 func _on_instructions_button_pressed() -> void:
 	get_tree().change_scene_to_file(instructionsScreen)
