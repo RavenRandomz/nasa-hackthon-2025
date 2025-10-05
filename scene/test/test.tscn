@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5qweca6dy5rp"]
 
-[ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_e4ggw"]
 [ext_resource type="PackedScene" uid="uid://euxoeushywk8" path="res://scene/draggable/draggable.tscn" id="1_iv6f8"]
 [ext_resource type="Script" uid="uid://dacniiidadoya" path="res://scene/module_holder/module_holder.gd" id="3_auxoc"]
 [ext_resource type="PackedScene" uid="uid://c8wahloi8tnsd" path="res://scene/port/port.tscn" id="3_mih6t"]
 [ext_resource type="PackedScene" uid="uid://dmy5xq3bfy6r4" path="res://scene/module/module.tscn" id="4_dd6y4"]
+[ext_resource type="PackedScene" uid="uid://bvx3tisgcqw14" path="res://scene/auto_spawner/auto_spawner.tscn" id="6_m5u1r"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,29 +14,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DraggableSpawner" parent="." node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_e4ggw")]
+[node name="AutoSpawner" parent="." node_paths=PackedStringArray("_spawn_into") instance=ExtResource("6_m5u1r")]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 179.0
-offset_right = 520.0
-offset_bottom = 273.0
-_scene_to_spawn = ExtResource("1_iv6f8")
-_spawn_into = NodePath("..")
+offset_left = 367.0
+offset_top = 364.0
+offset_right = 639.0
+offset_bottom = 604.0
+_spawn_into = NodePath("../Control")
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_auxoc")
-
-[node name="Draggable" parent="Control" instance=ExtResource("1_iv6f8")]
+[node name="Draggable" parent="AutoSpawner" instance=ExtResource("1_iv6f8")]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 202.0
-offset_right = 156.0
-offset_bottom = 249.0
 
-[node name="Sprite2D" parent="Control/Draggable" instance=ExtResource("4_dd6y4")]
+[node name="Sprite2D" parent="AutoSpawner/Draggable" instance=ExtResource("4_dd6y4")]
 position = Vector2(31, 26)
 resource_data = {
 "food": 34,
@@ -46,29 +35,35 @@ resource_data = {
 "water": 23
 }
 
-[node name="Port2" parent="Control/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
+[node name="Port2" parent="AutoSpawner/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
 position = Vector2(52, 23)
 
-[node name="Polygon2D" type="Polygon2D" parent="Control/Draggable/Sprite2D/Port2"]
+[node name="Polygon2D" type="Polygon2D" parent="AutoSpawner/Draggable/Sprite2D/Port2"]
 polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
 
-[node name="Control" type="Control" parent="Control/Draggable/Sprite2D"]
+[node name="Control" type="Control" parent="AutoSpawner/Draggable/Sprite2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Port3" parent="Control/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
+[node name="Port3" parent="AutoSpawner/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
 position = Vector2(98, 40)
 
-[node name="Polygon2D" type="Polygon2D" parent="Control/Draggable/Sprite2D/Port3"]
+[node name="Polygon2D" type="Polygon2D" parent="AutoSpawner/Draggable/Sprite2D/Port3"]
 polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
 
-[node name="Port4" parent="Control/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
+[node name="Port4" parent="AutoSpawner/Draggable/Sprite2D" instance=ExtResource("3_mih6t")]
 position = Vector2(78, -7)
 
-[node name="Polygon2D" type="Polygon2D" parent="Control/Draggable/Sprite2D/Port4"]
+[node name="Polygon2D" type="Polygon2D" parent="AutoSpawner/Draggable/Sprite2D/Port4"]
 polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_auxoc")
 
 [node name="Sprite2D" parent="Control" instance=ExtResource("4_dd6y4")]
 position = Vector2(31, 26)
