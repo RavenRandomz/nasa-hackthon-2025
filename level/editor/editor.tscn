@@ -92,7 +92,7 @@ flat = true
 _scene_to_spawn = ExtResource("13_ideg8")
 _spawn_into = NodePath("../../../../Shipspace")
 
-[node name="Power2" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="Endcap" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 layout_mode = 2
 icon = ExtResource("14_544mu")
 flat = true
