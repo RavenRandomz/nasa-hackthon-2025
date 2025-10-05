@@ -1,5 +1,5 @@
 extends Node
-
+class_name ResourceCalculator
 
 const ROOM_HEIGHT_CONSTANT = 1.91
 
@@ -230,12 +230,8 @@ func calculate_storage_area(mass_dict: Dictionary, areaType: String) -> float:
 	var food_storage_area = round(food_volume / ROOM_HEIGHT_CONSTANT * 100.0) / 100.0
 	
 	return food_storage_area if areaType.match("food_area") else total_storage_area
-
-func _ready():
-	# EDIT VALUES HERE
-	var crew_size = 5
-	var mission_days = 30
-
+	
+func calculate(crew_size, mission_days):
 	# TOTAL STORAGE VOLUME
 	var mass_dict = calculate_storage_mass(crew_size, mission_days)
 	var storage_volume = calculate_storage_area(mass_dict, "total_area")
@@ -262,3 +258,7 @@ func _ready():
 	print("Storage Area: ", total_storage_area)
 	print("Food Storage Area: ", food_storage_area)
 	print("Total Area: ", total_area)
+
+
+func _ready():
+	pass
