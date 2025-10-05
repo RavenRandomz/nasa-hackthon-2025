@@ -1,5 +1,5 @@
 extends Node
-
+class_name ResourceCalculator
 
 const ROOM_HEIGHT_CONSTANT = 1.91
 
@@ -230,12 +230,8 @@ func calculate_storage_area(mass_dict: Dictionary, areaType: String) -> float:
 	var food_storage_area = round(food_volume / ROOM_HEIGHT_CONSTANT * 100.0) / 100.0
 	
 	return food_storage_area if areaType.match("food_area") else total_storage_area
-
-func _ready():
-	# EDIT VALUES HERE
-	var crew_size = 5
-	var mission_days = 30
-
+	
+func calculate(crew_size, mission_days):
 	# TOTAL STORAGE VOLUME
 	var mass_dict = calculate_storage_mass(crew_size, mission_days)
 	var storage_volume = calculate_storage_area(mass_dict, "total_area")
@@ -254,11 +250,16 @@ func _ready():
 
 	# TOTAL PRESSURIZED AREA
 	var total_area = round(((total_nhv + total_storage_area) / ROOM_HEIGHT_CONSTANT) * 100.0) / 100.0
+	var data = {
+		"nhv" : total_nhv,
+		"room_volumes" : room_volumes["medical"],
+		"room_areas" : room_areas["medical"],
+		"storage_volume" : storage_volume,
+		"storage_area" : total_storage_area,
+		"food_storage_area" :  food_storage_area,
+		"total_area" : total_area
+	}
+	return data 
 
-	print("Total NHV: ", total_nhv)
-	print("Room Volumes: ", room_volumes)
-	print("Room Areas: ", room_areas)
-	print("Storage Volume: ", storage_volume)
-	print("Storage Area: ", total_storage_area)
-	print("Food Storage Area: ", food_storage_area)
-	print("Total Area: ", total_area)
+func _ready():
+	pass
