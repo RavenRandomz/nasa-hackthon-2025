@@ -196,7 +196,7 @@ def calculate_storage_volume(mass_dict):
 
     for item, mass in mass_dict.items():
         density = packing_densities[item]
-        total_volume += mass * density
+        total_volume += mass / density
 
         total_area = round(total_volume/HEIGHT_CONSTANT, 2)
 
