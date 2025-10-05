@@ -5,3 +5,4 @@
 [resource]
 Button/fonts/font = ExtResource("1_uimc8")
 Label/fonts/font = ExtResource("1_uimc8")
+LineEdit/fonts/font = ExtResource("1_uimc8")
