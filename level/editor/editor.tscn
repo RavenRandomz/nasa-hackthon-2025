@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bixf7sjfjfthx"]
+[gd_scene load_steps=18 format=3 uid="uid://bixf7sjfjfthx"]
 
 [ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://Assets/Fonts/Nano/nano-sharp.ttf" id="1_75nhd"]
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_imcdt"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" uid="uid://bi6tchch3rdwi" path="res://level/editor/display.gd" id="10_nu1e8"]
 [ext_resource type="Texture2D" uid="uid://dqo4ox8uknrmb" path="res://scene/module/bunk/bunk.png" id="10_pf2um"]
 [ext_resource type="PackedScene" uid="uid://dsokj3swxmhtj" path="res://scene/module/bunk/bunk.tscn" id="11_v1b7q"]
+[ext_resource type="Texture2D" uid="uid://dfehayad7jsk" path="res://scene/module/power/power.png" id="12_rsvct"]
+[ext_resource type="PackedScene" uid="uid://cittkfxc7uii4" path="res://scene/module/power/power.tscn" id="13_ideg8"]
+[ext_resource type="Texture2D" uid="uid://dkklbrlvkj78u" path="res://scene/module/endcap/endcap.png" id="14_544mu"]
+[ext_resource type="PackedScene" uid="uid://dypkimuptyhst" path="res://scene/module/endcap/endcap.tscn" id="15_xt1av"]
 
 [sub_resource type="Theme" id="Theme_4o2sj"]
 Button/colors/font_color = Color(0, 0.68235296, 0.65882355, 1)
@@ -79,6 +83,20 @@ layout_mode = 2
 icon = ExtResource("10_pf2um")
 flat = true
 _scene_to_spawn = ExtResource("11_v1b7q")
+_spawn_into = NodePath("../../../../Shipspace")
+
+[node name="Power" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+layout_mode = 2
+icon = ExtResource("12_rsvct")
+flat = true
+_scene_to_spawn = ExtResource("13_ideg8")
+_spawn_into = NodePath("../../../../Shipspace")
+
+[node name="Power2" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+layout_mode = 2
+icon = ExtResource("14_544mu")
+flat = true
+_scene_to_spawn = ExtResource("15_xt1av")
 _spawn_into = NodePath("../../../../Shipspace")
 
 [node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("_food_label", "_housing_label", "_waste_label", "_water_label", "_power_label")]
