@@ -1,5 +1,5 @@
 import math
-voids_percent = 0.01
+HEIGHT_CONSTANT = 1.91
 
 def calculate_nhv_volume(crew_size, mission_days):
     # Base crew size
@@ -105,9 +105,14 @@ def calculate_room_volumes(all_values):
         #Name is key of Values within room volumes
         for m in modules:
             total += all_values[m]  # Add the value of each module
-        room_volumes[name] = total
+        room_volumes[name] = round(total, 2)
 
-    return room_volumes
+    # ROUND AND DIVIDE VALUES BY HEIGHT CONSTANT TO CONVERT TO AREA
+    room_areas = {}
+    for name, volume in room_volumes.items():
+        room_areas[name] = round(volume / HEIGHT_CONSTANT, 2)
+
+    return room_volumes, room_areas
 
 def calculate_storage_mass(crew_size, mission_days):
     #storage scales with crew and Duration
@@ -187,12 +192,15 @@ def calculate_storage_volume(mass_dict):
         "Health Care Consumables": 186
     }
     total_volume = 0
+    total_area = 0
 
     for item, mass in mass_dict.items():
         density = packing_densities[item]
         total_volume += mass * density
 
-    return total_volume
+        total_area = round(total_volume/HEIGHT_CONSTANT, 2)
+
+    return total_area
 
 
 #EDIT VALUES HERE
@@ -202,12 +210,20 @@ mission_days = 1
 #TOTAL STORAGE VOLUME
 mass_dict = calculate_storage_mass(crew_size,mission_days)
 storage_volume = calculate_storage_volume(mass_dict)
+storage_area = round(storage_volume/HEIGHT_CONSTANT, 2)
 
 #TOTAL NET HABITABLE VOLUME
 total_nhv, all_values = calculate_nhv_volume(crew_size, mission_days)
 
 #VOLUMES FOR EACH ROOM
-room_volumes = calculate_room_volumes(all_values)
+room_volumes, room_areas = calculate_room_volumes(all_values)
 
-#TOTAL PRESSURIZED VOLUME
-total_volume = total_nhv + storage_volume
+#TOTAL PRESSURIZED AREA
+total_area = round(total_nhv + storage_volume, 2)
+
+print("Total NHV:", total_nhv)
+print("Room Volumes:", room_volumes)
+print("Room Areas:", room_areas)
+print("Storage Volume:", storage_volume)
+print("Storage Area", storage_area)
+print("Total Area:", total_area)
