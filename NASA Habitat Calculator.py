@@ -200,7 +200,12 @@ def calculate_storage_volume(mass_dict):
 
         total_area = round(total_volume/HEIGHT_CONSTANT, 2)
 
-    return total_area
+    # FIND FOOD STORAGE VALUES
+    food_mass = mass_dict["Food"]
+    food_volume = food_mass / packing_densities['Food']
+    food_storage_area = round(food_volume / HEIGHT_CONSTANT, 2)
+
+    return total_area, food_storage_area
 
 
 #EDIT VALUES HERE
@@ -209,7 +214,7 @@ mission_days = 1
 
 #TOTAL STORAGE VOLUME
 mass_dict = calculate_storage_mass(crew_size,mission_days)
-storage_volume = calculate_storage_volume(mass_dict)
+storage_volume,food_storage_area = calculate_storage_volume(mass_dict)
 storage_area = round(storage_volume/HEIGHT_CONSTANT, 2)
 
 #TOTAL NET HABITABLE VOLUME
@@ -226,4 +231,5 @@ print("Room Volumes:", room_volumes)
 print("Room Areas:", room_areas)
 print("Storage Volume:", storage_volume)
 print("Storage Area", storage_area)
+print("Food Storage Area", food_storage_area)
 print("Total Area:", total_area)
