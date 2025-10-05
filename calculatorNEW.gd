@@ -252,23 +252,14 @@ func calculate(crew_size, mission_days):
 	var total_area = round(((total_nhv + total_storage_area) / ROOM_HEIGHT_CONSTANT) * 100.0) / 100.0
 	var data = {
 		"nhv" : total_nhv,
-		"room_volumes" : room_volumes,
-		"room_areas" : room_areas,
+		"room_volumes" : room_volumes["medical"],
+		"room_areas" : room_areas["medical"],
 		"storage_volume" : storage_volume,
 		"storage_area" : total_storage_area,
 		"food_storage_area" :  food_storage_area,
 		"total_area" : total_area
 	}
 	return data 
-
-	print("Total NHV: ", total_nhv)
-	print("Room Volumes: ", room_volumes)
-	print("Room Areas: ", room_areas)
-	print("Storage Volume: ", storage_volume)
-	print("Storage Area: ", total_storage_area)
-	print("Food Storage Area: ", food_storage_area)
-	print("Total Area: ", total_area)
-
 
 func _ready():
 	pass
