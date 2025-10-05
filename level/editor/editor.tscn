@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bixf7sjfjfthx"]
+[gd_scene load_steps=5 format=3 uid="uid://bixf7sjfjfthx"]
 
 [ext_resource type="PackedScene" uid="uid://dl5vui1jt6o1w" path="res://scene/draggable_spawner/draggable_spawner.tscn" id="1_imcdt"]
+[ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://Assets/Low_Poly_Theme.tres" id="1_mrg5r"]
 [ext_resource type="Texture2D" uid="uid://0tyirppikmjk" path="res://image/rect1153-3-7.png" id="3_mrg5r"]
 [ext_resource type="PackedScene" uid="uid://cgscuef0vujkm" path="res://scene/module/basic_storage/basic_storage.tscn" id="4_ij8cb"]
 
@@ -11,13 +12,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mrg5r")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 0
 offset_right = 1155.0
 offset_bottom = 651.0
 split_offset = 505
-touch_dragger_enabled = true
 drag_area_margin_begin = 1
 drag_area_highlight_in_editor = true
 
@@ -25,62 +26,104 @@ drag_area_highlight_in_editor = true
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/MarginContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 2
 
-[node name="HFlowContainer2" type="HFlowContainer" parent="VSplitContainer/ScrollContainer"]
+[node name="HFlowContainer2" type="HFlowContainer" parent="VSplitContainer/MarginContainer/ScrollContainer"]
 custom_minimum_size = Vector2(700, 7)
 layout_mode = 2
 
-[node name="DraggableSpawner" parent="VSplitContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 _scene_to_spawn = ExtResource("4_ij8cb")
-_spawn_into = NodePath("../../../Shipspace")
+_spawn_into = NodePath("../../../../Shipspace")
 
-[node name="TextureRect" type="TextureRect" parent="VSplitContainer/ScrollContainer/HFlowContainer2/DraggableSpawner"]
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2/DraggableSpawner"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.13076723, 0.13076723)
 texture = ExtResource("3_mrg5r")
 
-[node name="DraggableSpawner2" parent="VSplitContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner2" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 _scene_to_spawn = ExtResource("4_ij8cb")
-_spawn_into = NodePath("../../../Shipspace")
+_spawn_into = NodePath("../../../../Shipspace")
 
-[node name="TextureRect" type="TextureRect" parent="VSplitContainer/ScrollContainer/HFlowContainer2/DraggableSpawner2"]
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2/DraggableSpawner2"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.13076723, 0.13076723)
 texture = ExtResource("3_mrg5r")
 
-[node name="DraggableSpawner3" parent="VSplitContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner3" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 _scene_to_spawn = ExtResource("4_ij8cb")
-_spawn_into = NodePath("../../../Shipspace")
+_spawn_into = NodePath("../../../../Shipspace")
 
-[node name="TextureRect" type="TextureRect" parent="VSplitContainer/ScrollContainer/HFlowContainer2/DraggableSpawner3"]
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2/DraggableSpawner3"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.13076723, 0.13076723)
 texture = ExtResource("3_mrg5r")
 
-[node name="DraggableSpawner4" parent="VSplitContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
+[node name="DraggableSpawner4" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2" node_paths=PackedStringArray("_spawn_into") instance=ExtResource("1_imcdt")]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 _scene_to_spawn = ExtResource("4_ij8cb")
-_spawn_into = NodePath("../../../Shipspace")
+_spawn_into = NodePath("../../../../Shipspace")
 
-[node name="TextureRect" type="TextureRect" parent="VSplitContainer/ScrollContainer/HFlowContainer2/DraggableSpawner4"]
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/MarginContainer/ScrollContainer/HFlowContainer2/DraggableSpawner4"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.13076723, 0.13076723)
 texture = ExtResource("3_mrg5r")
+
+[node name="CenterContainer" type="CenterContainer" parent="VSplitContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 142.0
+offset_bottom = 49.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "This is a cool thing
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Test"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
