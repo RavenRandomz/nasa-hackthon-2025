@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpw324htrqu1a"]
+
+[ext_resource type="PackedScene" uid="uid://mkti1j6kmqnc" path="res://scenes/UI/main_menu_ui.tscn" id="1_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="2_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://b53ws130t0o1y" path="res://assets/sounds/background_music.mp3" id="2_yqjtg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdsrw"]
+texture = ExtResource("2_lbhrr")
+modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[node name="Game" type="Node2D"]
+
+[node name="main_menu" type="Node2D" parent="."]
+
+[node name="MainMenuUI" parent="main_menu" instance=ExtResource("1_lnu2h")]
+
+[node name="Panel" type="Panel" parent="main_menu"]
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fdsrw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yqjtg")
+autoplay = true
