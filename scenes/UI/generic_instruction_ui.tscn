@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://pyk0m4wtp4m3"]
+[gd_scene load_steps=7 format=3 uid="uid://pyk0m4wtp4m3"]
 
 [ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="1_31jmx"]
 [ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_k4bdw"]
@@ -7,6 +7,10 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sso6l"]
 texture = ExtResource("1_k4bdw")
 modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k4bdw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sso6l"]
 
 [node name="generic_instruction_ui" type="CanvasLayer"]
 metadata/_edit_horizontal_guides_ = [651.0]
@@ -65,3 +69,9 @@ You will drag and drop your resources to create your ideal space station to make
 Think you're done? Run it to see if your resources are enough to complete a successful mission!
 Do you have what it takes to complete the challenge and get back to Earth?
 "
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_icons/icon = SubResource("CanvasTexture_k4bdw")
+icon = SubResource("CanvasTexture_sso6l")
