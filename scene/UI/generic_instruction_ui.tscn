@@ -54,7 +54,7 @@ text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vene
 Donec ut dignissim dui. Mauris diam justo, porttitor sit amet leo at, laoreet dapibus dolor. Sed libero quam, tincidunt quis odio elementum, varius tincidunt libero. Aliquam rutrum sollicitudin nisl. Curabitur sed nunc egestas, molestie orci vel, elementum tellus. Proin tempus, ante vitae porttitor posuere, nisi elit eleifend eros, quis pellentesque dolor metus eu dolor. Etiam sem velit, porta eget lobortis vel, interdum quis libero. Fusce in dolor ullamcorper, congue purus vitae, commodo lacus. Quisque quis eros lectus. Maecenas sed pulvinar ipsum, quis cursus leo. Suspendisse vehicula tellus laoreet, egestas quam in, tempor nibh. "
 
 [node name="home_button" parent="." instance=ExtResource("4_o2dpc")]
-offset_left = 8.000002
+offset_left = 8.0
 offset_top = 503.99997
 offset_right = 8.0
 offset_bottom = 504.0
