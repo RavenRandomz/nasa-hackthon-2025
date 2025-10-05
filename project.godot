@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="interstellar-makeover"
-run/main_scene="uid://c5qweca6dy5rp"
+run/main_scene="uid://ck285h7dejad0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://mkti1j6kmqnc"
 
 [editor_plugins]
 
