@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cittkfxc7uii4"]
 
-[ext_resource type="Texture2D" uid="uid://b4xdtae15ctti" path="res://scene/module/power/power.png" id="1_jcdg0"]
+[ext_resource type="Texture2D" uid="uid://dfehayad7jsk" path="res://scene/module/power/power.png" id="1_jcdg0"]
 [ext_resource type="Script" uid="uid://s7fiie8saace" path="res://scene/draggable/draggable.gd" id="1_susgl"]
 [ext_resource type="PackedScene" uid="uid://dmy5xq3bfy6r4" path="res://scene/module/module.tscn" id="2_vypny"]
 
@@ -15,7 +15,7 @@ script = ExtResource("1_susgl")
 resource_data = {
 "food": 0,
 "housing": 4,
-"power": 0,
+"power": 40,
 "waste_management": 0,
 "water": 0
 }
