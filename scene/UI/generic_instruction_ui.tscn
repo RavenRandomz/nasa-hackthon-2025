@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://pyk0m4wtp4m3"]
+
+[ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://Assets/Low_Poly_Theme.tres" id="1_31jmx"]
+[ext_resource type="Script" uid="uid://bgc852oystojc" path="res://home_button.gd" id="1_p3dm7"]
+[ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://Assets/Fonts/Nano/nano-sharp.ttf" id="2_gaq5j"]
+[ext_resource type="PackedScene" uid="uid://d3urvgqa1o3oh" path="res://Assets/icons/home_button.tscn" id="4_o2dpc"]
+
+[node name="generic_instruction_ui" type="CanvasLayer"]
+script = ExtResource("1_p3dm7")
+metadata/_edit_horizontal_guides_ = [651.0]
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.18100001
+anchor_right = 0.067
+anchor_bottom = 0.18100001
+offset_left = -53.184006
+offset_top = -101.28801
+offset_right = 439.31598
+offset_bottom = 24.71199
+grow_horizontal = 2
+theme = ExtResource("1_31jmx")
+theme_override_fonts/font = ExtResource("2_gaq5j")
+theme_override_font_sizes/font_size = 50
+text = "How to play"
+
+[node name="PageCounter" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.19500001
+anchor_bottom = 0.273
+offset_left = 1044.0
+offset_top = 48.0
+offset_right = 869.36
+offset_bottom = -93.90401
+theme = ExtResource("1_31jmx")
+theme_override_font_sizes/font_size = 20
+text = "1/X"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -152.0
+offset_right = 399.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis porta massa id pharetra. Aenean nunc odio, semper eget nulla eget, aliquet placerat ipsum. Etiam quis consequat nulla. Donec viverra condimentum metus, sed bibendum massa fringilla quis. Donec scelerisque aliquet consequat. Sed hendrerit enim ac velit lobortis, sit amet efficitur eros elementum. Duis dignissim purus enim, at pretium metus gravida ac.
+
+Donec ut dignissim dui. Mauris diam justo, porttitor sit amet leo at, laoreet dapibus dolor. Sed libero quam, tincidunt quis odio elementum, varius tincidunt libero. Aliquam rutrum sollicitudin nisl. Curabitur sed nunc egestas, molestie orci vel, elementum tellus. Proin tempus, ante vitae porttitor posuere, nisi elit eleifend eros, quis pellentesque dolor metus eu dolor. Etiam sem velit, porta eget lobortis vel, interdum quis libero. Fusce in dolor ullamcorper, congue purus vitae, commodo lacus. Quisque quis eros lectus. Maecenas sed pulvinar ipsum, quis cursus leo. Suspendisse vehicula tellus laoreet, egestas quam in, tempor nibh. "
+
+[node name="home_button" parent="." instance=ExtResource("4_o2dpc")]
+offset_left = 8.000002
+offset_top = 503.99997
+offset_right = 8.0
+offset_bottom = 504.0
+scale = Vector2(0.11100906, 0.22780526)
