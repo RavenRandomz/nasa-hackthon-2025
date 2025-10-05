@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://qc1x8hbop78s"]
+
+[ext_resource type="Script" uid="uid://s7fiie8saace" path="res://scene/draggable/draggable.gd" id="1_177qc"]
+[ext_resource type="Texture2D" uid="uid://b1rdxr6j0ekma" path="res://scene/module/dining_hall/dining_hall.png" id="1_ds8pa"]
+
+[node name="Draggable" type="Button"]
+offset_right = 53.0
+offset_bottom = 47.0
+icon = ExtResource("1_ds8pa")
+flat = true
+script = ExtResource("1_177qc")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
