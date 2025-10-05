@@ -4,9 +4,22 @@ class_name Module
 
 var _ports: Array[Port]
 
+var _resource_total = ResourceTotal.new()
+@export var resource_data = {
+	"housing": 0,
+	"food" : 0,
+	"water" : 0,
+	"power" : 0,
+	"waste_management" : 0
+	}
+
 var _connected_port_count = 0
 
+func _init():
+	pass
+
 func _ready():
+	_resource_total.data = resource_data
 	for child in get_children():
 		if (child is Port):
 			_ports.push_back(child)
