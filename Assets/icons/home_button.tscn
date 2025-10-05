@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3urvgqa1o3oh"]
+[gd_scene load_steps=4 format=3 uid="uid://d3urvgqa1o3oh"]
 
 [ext_resource type="Texture2D" uid="uid://chkrkyfp1723v" path="res://Assets/icons/house-solid-full.svg" id="1_51x6k"]
 
 [sub_resource type="Theme" id="Theme_51x6k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51x6k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="home_button" type="Control"]
 layout_mode = 3
@@ -18,3 +21,4 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_icons/icon = ExtResource("1_51x6k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_51x6k")

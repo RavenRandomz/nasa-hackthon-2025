@@ -1,9 +1,7 @@
 extends CanvasLayer
 
-
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
-
 
 func _on_learn_more_button_pressed() -> void:
 	print("'Learn more button' pressed")
