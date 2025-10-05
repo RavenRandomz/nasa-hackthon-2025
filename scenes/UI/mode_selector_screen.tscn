@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3jac5k8heqqj"]
+
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_mvncw"]
+[ext_resource type="Script" path="res://scripts/mode_selector_screen.gd" id="1_xjc6t"]
+[ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="2_gtsly"]
+[ext_resource type="Texture2D" uid="uid://db3awthn06iw4" path="res://assets/icons/whiteHouseIcon.svg" id="4_7x8ks"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjc6t"]
+texture = ExtResource("1_mvncw")
+modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3jc1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="ModeSelectorScreen" type="Node2D"]
+script = ExtResource("1_xjc6t")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xjc6t")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -264.5
+offset_top = 62.0
+offset_right = 264.5
+offset_bottom = 152.0
+grow_horizontal = 2
+theme = ExtResource("2_gtsly")
+theme_override_font_sizes/font_size = 51
+text = "Select Mode"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -63.5
+offset_right = -51.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.9845943, 2.9845943)
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_gtsly")
+text = "Sandbox"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_gtsly")
+text = "Levels"
+
+[node name="HomeButton" type="Button" parent="."]
+offset_left = 16.000015
+offset_top = 568.0
+offset_right = 656.0
+offset_bottom = 1208.0
+scale = Vector2(0.094326325, 0.10154381)
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_icons/icon = ExtResource("4_7x8ks")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d3jc1")
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_sandbox_button_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]

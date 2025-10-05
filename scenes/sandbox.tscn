@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://vmlo6sqx82vy"]
+
+[ext_resource type="PackedScene" uid="uid://bixf7sjfjfthx" path="res://scenes/level/editor/editor.tscn" id="1_rgld7"]
+[ext_resource type="PackedScene" uid="uid://do18uq3pp0ix7" path="res://scenes/vfx/background/background_stars.tscn" id="2_a8pr3"]
+
+[node name="Sandbox" type="Node2D"]
+
+[node name="Editor" parent="." instance=ExtResource("1_rgld7")]
+
+[node name="BackgroundStars" parent="." instance=ExtResource("2_a8pr3")]
