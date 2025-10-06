@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpbgdjxuim2i6"]
+
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_vb387"]
+[ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="2_6mqvm"]
+[ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://assets/fonts/Nano/nano-sharp.ttf" id="3_p86o8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sso6l"]
+texture = ExtResource("1_vb387")
+modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k4bdw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sso6l"]
+
+[node name="instructions" type="CanvasLayer"]
+metadata/_edit_horizontal_guides_ = [651.0]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sso6l")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.18100001
+anchor_right = 0.067
+anchor_bottom = 0.18100001
+offset_left = -53.184006
+offset_top = -101.28801
+offset_right = 439.31598
+offset_bottom = 24.71199
+grow_horizontal = 2
+theme = ExtResource("2_6mqvm")
+theme_override_fonts/font = ExtResource("3_p86o8")
+theme_override_font_sizes/font_size = 50
+text = "How to play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -201.0
+offset_right = 833.0
+offset_bottom = 187.0
+grow_vertical = 2
+scale = Vector2(1.3169224, 1.238433)
+theme = ExtResource("2_6mqvm")
+text = "“Greetings Astronaught!”
+
+“Welcome to Interstellar Makeover!”
+
+\"We have a Galactic Problem that requires your attention!\"
+
+Your task: Design a sustainable habitat for you and your crew that will safely house all of you on your interstellar journeys! 
+
+The Specification:
+
+You will choose your crew size and mission duration(in the calculator tab) to base your calculations off of. 
+Next, you will use all the tools at your disposal to put your brain to the test and design the perfect space station for a successful mission!
+Based on how many and how long, you will need to meet a minimum number of resource requirements in order to make it back safely. These requirements include having enough of each type of room to sustain the amount of people in areas such as sleeping quarters, exercise space, recreation and dining areas, food preparation and storage areas, Command and control room, a medical bay, hygiene space, maintenance room, logistics/ storage room, waste management/ collection space, private work quarters and an EVA suit and airlock bay as the main types.
+
+Each of these rooms/spaces carry their own resources when added, and it will carry a calculator on your screen as you progress to keep track of your progress. Make sure your resources are up to par! All calculations are based on official NASA data. 
+But be careful!! There are strict requirements regarding room placement and what each room type entails. You don’t want to have to make dinner next to Richard’s restroom time! You cannot place a waste area next to any area with food, hygiene, health or human rejuvenation.
+There are volume requirements based on the specification of crew size and mission duration which impacts the amount of each of the room types to have with food specification as well.
+
+You will drag and drop your resources to create your ideal space station to make it back home!
+Think you're done? Run it to see if your resources are enough to complete a successful mission!
+Do you have what it takes to complete the challenge and get back to Earth?
+"
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_icons/icon = SubResource("CanvasTexture_k4bdw")
+icon = SubResource("CanvasTexture_sso6l")

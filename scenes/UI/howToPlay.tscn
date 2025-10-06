@@ -1,5 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://60dvq3vko1"]
+[gd_scene load_steps=9 format=3 uid="uid://60dvq3vko1"]
 
-[ext_resource type="PackedScene" uid="uid://pyk0m4wtp4m3" path="res://scenes/UI/generic_instruction_ui.tscn" id="1_no4rn"]
+[ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_2adon"]
+[ext_resource type="Script" uid="uid://cgful0oudo6iw" path="res://scenes/UI/how_to_play.gd" id="1_vxmuh"]
+[ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="2_eqmph"]
+[ext_resource type="Texture2D" uid="uid://db3awthn06iw4" path="res://assets/icons/whiteHouseIcon.svg" id="3_eqmph"]
+[ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://assets/fonts/Nano/nano-sharp.ttf" id="3_vxmuh"]
+[ext_resource type="Texture2D" uid="uid://cn06oey3ufc21" path="res://assets/icons/greyHouseIcon.svg" id="6_o8rjj"]
 
-[node name="generic_instruction_ui" instance=ExtResource("1_no4rn")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8rjj"]
+texture = ExtResource("1_2adon")
+modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vxmuh"]
+diffuse_texture = ExtResource("6_o8rjj")
+specular_texture = ExtResource("3_eqmph")
+specular_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vxmuh")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_o8rjj")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.18100001
+anchor_right = 0.067
+anchor_bottom = 0.18100001
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 524.5
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("2_eqmph")
+theme_override_fonts/font = ExtResource("3_vxmuh")
+theme_override_font_sizes/font_size = 50
+text = "How to play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = 129.99995
+offset_right = 833.0
+offset_bottom = 517.99994
+grow_vertical = 2
+scale = Vector2(1.3169224, 1.238433)
+theme = ExtResource("2_eqmph")
+text = "“Greetings Astronaut!”
+
+“Welcome to Interstellar Makeover!”
+
+\"We have a Galactic Problem that requires your attention!\"
+
+Your task: Design a sustainable habitat for you and your crew that will safely house all of you on your interstellar journeys! 
+
+The Specification:
+
+You will choose your crew size and mission duration(in the calculator tab) to base your calculations off of. 
+Next, you will use all the tools at your disposal to put your brain to the test and design the perfect space station for a successful mission!
+Based on your mission details, you will need to meet a minimum number of resource requirements in order to make it back safely. These requirements include having enough of each type of room to sustain the crew. Think sleeping quarters, exercise space, recreation and dining areas; food preparation, storage areas and many more.
+
+Each of these spaces carry their own resources when added. You will be able to see how each room affects resources on the display to help you keep track of your progress. Make sure your resources are up to par! All calculations are based on official NASA data. 
+But be careful! There are strict requirements regarding room placement. You wouldn't want to make dinner right next to the gym! You cannot place a waste related room next to any space related to  food, hygiene, health or wellness.
+
+There are volume requirements based on the provided  crew size and mission duration, which impact the minimum amount of space that your design must provide.
+
+You will drag and drop your resources to create your ideal space station to make it back home!
+Do you have what it takes to complete the challenge and get back to Earth?
+"
+
+[node name="HomeButton" type="TextureButton" parent="."]
+offset_left = 1032.0001
+offset_top = 8.0
+offset_right = 1672.0001
+offset_bottom = 648.0
+scale = Vector2(0.15837653, 0.13557519)
+texture_normal = ExtResource("3_eqmph")
+texture_pressed = ExtResource("3_eqmph")
+texture_hover = SubResource("CanvasTexture_vxmuh")
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
