@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="uid://mkti1j6kmqnc"
 
+[autoload]
+
+GlobalAudioStreamPlayer="*res://audio_player.gd"
+AudioPlayer="*res://scenes/audio_player.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
