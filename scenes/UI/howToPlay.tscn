@@ -74,7 +74,7 @@ You will drag and drop your resources to create your ideal space station to make
 Do you have what it takes to complete the challenge and get back to Earth?
 "
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="HomeButton" type="TextureButton" parent="."]
 offset_left = 1032.0001
 offset_top = 8.0
 offset_right = 1672.0001
@@ -84,4 +84,4 @@ texture_normal = ExtResource("3_eqmph")
 texture_pressed = ExtResource("3_eqmph")
 texture_hover = SubResource("CanvasTexture_vxmuh")
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
