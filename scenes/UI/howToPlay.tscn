@@ -1,14 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://60dvq3vko1"]
+[gd_scene load_steps=9 format=3 uid="uid://60dvq3vko1"]
 
 [ext_resource type="Texture2D" uid="uid://34jtsxf6egv7" path="res://assets/SpaceChallengeBackgrond.png" id="1_2adon"]
+[ext_resource type="Script" uid="uid://cgful0oudo6iw" path="res://scenes/UI/how_to_play.gd" id="1_vxmuh"]
 [ext_resource type="Theme" uid="uid://bgi1he5teq16t" path="res://assets/Low_Poly_Theme.tres" id="2_eqmph"]
+[ext_resource type="Texture2D" uid="uid://db3awthn06iw4" path="res://assets/icons/whiteHouseIcon.svg" id="3_eqmph"]
 [ext_resource type="FontFile" uid="uid://c0hg4c5mw1sgw" path="res://assets/fonts/Nano/nano-sharp.ttf" id="3_vxmuh"]
+[ext_resource type="Texture2D" uid="uid://cn06oey3ufc21" path="res://assets/icons/greyHouseIcon.svg" id="6_o8rjj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8rjj"]
 texture = ExtResource("1_2adon")
 modulate_color = Color(0.446777, 0.44677705, 0.44677705, 1)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_vxmuh"]
+diffuse_texture = ExtResource("6_o8rjj")
+specular_texture = ExtResource("3_eqmph")
+specular_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_vxmuh")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1158.0
@@ -21,10 +30,10 @@ anchor_left = 0.067
 anchor_top = 0.18100001
 anchor_right = 0.067
 anchor_bottom = 0.18100001
-offset_left = 37.0
-offset_top = 19.0
-offset_right = 529.5
-offset_bottom = 145.0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 524.5
+offset_bottom = 134.0
 grow_horizontal = 2
 theme = ExtResource("2_eqmph")
 theme_override_fonts/font = ExtResource("3_vxmuh")
@@ -64,3 +73,15 @@ There are volume requirements based on the provided  crew size and mission durat
 You will drag and drop your resources to create your ideal space station to make it back home!
 Do you have what it takes to complete the challenge and get back to Earth?
 "
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1032.0001
+offset_top = 8.0
+offset_right = 1672.0001
+offset_bottom = 648.0
+scale = Vector2(0.15837653, 0.13557519)
+texture_normal = ExtResource("3_eqmph")
+texture_pressed = ExtResource("3_eqmph")
+texture_hover = SubResource("CanvasTexture_vxmuh")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_home_button_pressed"]
