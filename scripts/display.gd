@@ -17,11 +17,11 @@ extends MarginContainer
 var score_data
 
 func _on_update_of_score(score_data):
-	_housing_label.text = str(score_data["housing"])
-	_food_label.text =  str(score_data["food"])
-	_water_label.text = str(score_data["water"])
-	_power_label.text = str(score_data["power"])
-	_waste_label.text = str(score_data["waste_management"])
+	_housing_label.text = "%48s" % str(score_data["housing"])
+	_food_label.text =  "%56s" % str(score_data["food"])
+	_water_label.text = "%53s" % str(score_data["water"])
+	_power_label.text = "%53s" % str(score_data["power"])
+	_waste_label.text = "%53s" % str(score_data["waste_management"])
 
 
 func _on_shipspace_resource_changed(resource_data: Variant) -> void:
